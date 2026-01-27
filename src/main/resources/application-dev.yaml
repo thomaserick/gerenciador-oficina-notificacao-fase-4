@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/gerenciador-oficina-notificacao
+    username: postgres
+    password: oficina@123
+
+management:
+  health:
+    mail:
+      enabled: false
+
+email:
+  enabled: false
