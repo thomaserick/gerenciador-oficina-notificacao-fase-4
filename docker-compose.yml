@@ -1,5 +1,10 @@
 version: '3.8'
 
+volumes:
+  postgres_data: { }
+  rabbitmq-data: { }
+
+
 services:
 
   postgres:
@@ -19,12 +24,23 @@ services:
       timeout: 5s
       retries: 5
 
+  rabbitmq:
+    image: rabbitmq:4.1-management-alpine
+    restart: unless-stopped
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+    ports:
+      - 15672:15672
+      - 5672:5672
+
   gerenciador-oficina-core:
     image: gerenciador-oficina-notificacao:latest
     container_name: gerenciador-oficina-notificacao
     depends_on:
       postgres:
         condition: service_healthy
+      rabbit:
+        condition: service_started
     build:
       context: .
       dockerfile: Dockerfile
@@ -32,7 +48,9 @@ services:
       - "8082:8082"
     environment:
       SPRING_PROFILES_ACTIVE: dev
+      SPRING_RABBITMQ_HOST: rabbit
+      SPRING_RABBITMQ_PORT: 5672
+      SPRING_RABBITMQ_USERNAME: guest
+      SPRING_RABBITMQ_PASSWORD: guest
 
-volumes:
-  postgresql:
-  postgres_data:
+

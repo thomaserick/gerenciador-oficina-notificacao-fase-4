@@ -68,6 +68,9 @@ spring:
       - org.springframework.boot.actuate.autoconfigure.metrics.SystemMetricsAutoConfiguration
       - org.springframework.boot.actuate.autoconfigure.metrics.export.simple.SimpleMetricsExportAutoConfiguration
 
+  rabbitmq:
+    addresses: amqps://qvmoypwp:svWftB5y5T6iGqSHLCXLh9Zu51OhaTri@moose.rmq.cloudamqp.com/qvmoypwp
+
 springdoc:
   default-produces-media-type: application/json
   api-docs:
@@ -103,6 +106,10 @@ management:
 
 email:
   enabled: true
+
+broker:
+  queue:
+    email: default.email
 
 server:
   port: 8082

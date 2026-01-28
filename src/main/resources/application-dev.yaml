@@ -11,3 +11,7 @@ management:
 
 email:
   enabled: false
+
+logging:
+  level:
+    org.springframework.amqp: DEBUG
