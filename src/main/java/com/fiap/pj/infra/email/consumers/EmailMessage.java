@@ -6,5 +6,5 @@ import java.util.List;
 
 public record EmailMessage(String destinatario,
                            Template template,
-                           List<Object> args) {
+                           List<Object> placeholders) {
 }

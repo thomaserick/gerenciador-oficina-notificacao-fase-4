@@ -88,8 +88,8 @@ public class EnviarEmailUseCaseImpl implements EnviarEmailUseCase {
     }
 
     private String getFormattedText(EnviarEmailCommand cmd, EmailTemplate emailTemplate) {
-        return CollectionUtils.isEmpty(cmd.args())
+        return CollectionUtils.isEmpty(cmd.placeholders())
                 ? emailTemplate.getCorpo()
-                : String.format(emailTemplate.getCorpo(), cmd.args().toArray());
+                : String.format(emailTemplate.getCorpo(), cmd.placeholders().toArray());
     }
 }

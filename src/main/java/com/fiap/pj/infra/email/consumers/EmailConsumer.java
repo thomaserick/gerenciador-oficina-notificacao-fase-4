@@ -21,7 +21,7 @@ public class EmailConsumer {
                 new EnviarEmailCommand(
                         emailMessage.destinatario(),
                         emailMessage.template(),
-                        emailMessage.args()
+                        emailMessage.placeholders()
                 )
         );
     }

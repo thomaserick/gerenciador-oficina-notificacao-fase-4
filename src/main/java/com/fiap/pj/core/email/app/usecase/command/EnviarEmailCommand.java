@@ -7,6 +7,6 @@ import java.util.List;
 public record EnviarEmailCommand(
         String destinatario,
         Template template,
-        List<Object> args
+        List<Object> placeholders
 ) {
 }
