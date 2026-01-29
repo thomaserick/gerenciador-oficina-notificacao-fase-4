@@ -33,6 +33,10 @@ relacionadas às ordens de serviço.
 - **SonarQube** - Análise de qualidade e cobertura de código
 - **RabbitMQ** - Fila de mensagens para comunicação assíncrona
 
+📝 Diagrama de arquitetura da aplicação:
+
+![Arquitetura](docs/assets/diagrama-arquitetura.png)
+
 ## 🚀 CI/CD Pipeline – GitHub Actions
 
 Esta pipeline automatiza o processo de build, teste, análise, empacotamento e deploy da aplicação Gerenciador Oficina
