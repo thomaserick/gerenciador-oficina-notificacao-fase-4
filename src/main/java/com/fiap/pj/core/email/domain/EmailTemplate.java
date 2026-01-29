@@ -5,6 +5,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Id;
 import lombok.Getter;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.time.ZonedDateTime;
 import java.util.UUID;
@@ -12,6 +13,7 @@ import java.util.UUID;
 @Getter
 public class EmailTemplate implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = -5209424579593010947L;
 
     @Id
@@ -37,7 +39,4 @@ public class EmailTemplate implements Serializable {
         this.dataCriacao = dataCriacao;
     }
 
-    public String getHtml(Object... args) {
-        return String.format(this.corpo, args);
-    }
 }
