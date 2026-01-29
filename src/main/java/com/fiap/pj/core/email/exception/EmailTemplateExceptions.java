@@ -2,7 +2,7 @@ package com.fiap.pj.core.email.exception;
 
 public class EmailTemplateExceptions {
 
-    public EmailTemplateExceptions() {
+    private EmailTemplateExceptions() {
     }
 
     public static class EmailTemplateNaoEncontradoException extends RuntimeException {

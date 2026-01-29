@@ -67,6 +67,19 @@ class EnviarEmailUseCaseImplTest {
     }
 
     @Test
+    void deveBuscarTemplateDoResourceOrcamentoAprovado() {
+        EnviarEmailCommand cmd = new EnviarEmailCommand("dest@teste.com", Template.ORCAMENTO_APROVADO, null);
+        when(emailGateway.buscarTemplate(Template.ORCAMENTO_APROVADO)).thenReturn(Optional.empty());
+        MimeMessage mimeMessage = mock(MimeMessage.class);
+        when(mailSender.createMimeMessage()).thenReturn(mimeMessage);
+
+        useCase.handle(cmd);
+
+        verify(mailSender, times(1)).send(mimeMessage);
+    }
+
+
+    @Test
     void naoDeveEnviarEmailQuandoDesabilitado() {
         setEmailEnabled(useCase, false);
         EnviarEmailCommand cmd = new EnviarEmailCommand("dest@teste.com", Template.BOAS_VINDAS, null);

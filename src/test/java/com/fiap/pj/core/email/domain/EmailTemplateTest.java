@@ -1,6 +1,5 @@
-package com.fiap.pj.core.email.model;
+package com.fiap.pj.core.email.domain;
 
-import com.fiap.pj.core.email.domain.EmailTemplate;
 import com.fiap.pj.core.email.domain.enums.Template;
 import org.junit.jupiter.api.Test;
 

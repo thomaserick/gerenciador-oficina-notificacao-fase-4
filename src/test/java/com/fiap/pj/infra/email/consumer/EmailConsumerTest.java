@@ -12,7 +12,6 @@ import org.mockito.ArgumentCaptor;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 class EmailConsumerTest {
 
@@ -27,10 +26,7 @@ class EmailConsumerTest {
 
     @Test
     void deveChamarHandleAoReceberMensagem() {
-        EmailMessage emailMessage = mock(EmailMessage.class);
-        when(emailMessage.destinatario()).thenReturn("teste@teste.com");
-        when(emailMessage.template()).thenReturn(Template.BOAS_VINDAS);
-        when(emailMessage.placeholders()).thenReturn(null);
+        EmailMessage emailMessage = new EmailMessage("teste@teste.com", Template.BOAS_VINDAS, null);
 
         emailConsumer.receiveMessage(emailMessage);
 
