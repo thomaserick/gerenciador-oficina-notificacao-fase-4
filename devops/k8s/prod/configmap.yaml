@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: gerenciador-oficina-notificacao-config
 data:
-  SPRING_DATASOURCE_URL: jdbc:postgresql://{{RDS_ENDPOINT}}:5432/postgres
+  SPRING_DATASOURCE_URL: jdbc:postgresql://{{RDS_ENDPOINT}}:5432/notificacao
 
