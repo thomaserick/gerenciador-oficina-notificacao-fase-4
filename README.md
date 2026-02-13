@@ -67,6 +67,7 @@ A pipeline utiliza as seguintes variáveis de ambiente armazenadas como Secrets 
 | AWS_SECRET_ACCESS_KEY | Chave secreta AWS                      |
 | SMTP_USERNAME         | Usuário SMTP para envio de e-mails     |
 | SMTP_PASSWORD         | Senha SMTP para envio de e-mails       |
+| NEW_RELIC_API_KEY     | Chave de API do New Relic              |
 
 ### 🔨 Job: Build
 
