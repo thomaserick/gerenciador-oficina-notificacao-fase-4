@@ -16,6 +16,7 @@ relacionadas às ordens de serviço.
 - [Tecnologias](#-tecnologias)
 - [CI/CD Pipeline](#-cicd-pipeline--github-actions)
 - [Kubernetes (EKS)](#-kubernetes-eks)
+- [Monitoramento e Observabilidade](#-monitoramento-e-observabilidade-com-new-relic)
 - [Instalação Local](#-instalação-local)
 - [Repositórios Relacionados](#-repositórios-relacionados--fase-4)
 
@@ -152,6 +153,25 @@ devops/
 | **hpa.yaml**             | Configura o **Horizontal Pod Autoscaler**, responsável por escalar os pods automaticamente conforme CPU/memória.                                                                                           |
 | **deploy-prod-k8s.sh**   | Script automatizado utilizado no pipeline de CI/CD para aplicar todos os manifests ( `kubectl apply -f`) no cluster EKS. Também atualiza o `ConfigMap` com o endpoint mais recente do RDS antes do deploy. |
 
+## 📊 Monitoramento e Observabilidade com New Relic
+
+Este projeto utiliza o New Relic para garantir observabilidade completa da aplicação, permitindo monitorar performance,
+saúde, consumo de recursos e falhas operacionais em tempo real.
+
+### Visão Geral (APM)
+
+![New Relic APM Overview](docs/assets/monitoramento/apm-overview-1.png)
+![New Relic APM Overview](docs/assets/monitoramento/apm-overview-2.png)
+
+### 🚨 Alertas
+
+Alertas são configurados no New Relic para:
+
+- Aumento anormal de latência.
+- Falhas no processamento das mensagens e envio de e-mails.
+- Indisponibilidade dos healthchecks.
+- Consumo excessivo de CPU ou memória no Kubernetes.
+
 ## ⚙️ Instalação Local
 
 ### Rodar o projeto local com Docker
@@ -201,6 +221,33 @@ devops/
 4.Acesse a aplicação na porta `http://localhost:8082/swagger-ui/index.html`
 
 O sistema rodará na porta `localhost:8082`.
+
+#### Teste local com RabbitMQ
+
+Para testar localmente com RabbitMQ, siga os passos abaixo:
+
+1. Certifique-se de ter o RabbitMQ instalado e em execução localmente.
+2. Configure as propriedades de conexão do RabbitMQ no arquivo `application-dev.yaml`:
+3. ```yaml
+   spring:
+     rabbitmq:
+       host: localhost
+       port: 5672
+       username: seu_usuario
+       password: sua_senha
+   ```
+4. Inicie a aplicação. Ela se conectará ao RabbitMQ local para enviar e receber mensagens.
+5. Utilize uma ferramenta como o RabbitMQ Management UI para monitorar as filas e mensagens.
+6. Envie mensagens de teste para as filas configuradas e verifique se a aplicação as processa corretamente.
+7. Ex de mensagem para processar pagamento:
+
+```json
+{
+  "destinatario": "thomas@totvs.com.br",
+  "template": "BOAS_VINDAS",
+  "placeholders": null
+}
+```
 
 ## 🔗 Repositórios Relacionados — Fase 4
 
