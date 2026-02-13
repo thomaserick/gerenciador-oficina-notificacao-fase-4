@@ -49,7 +49,7 @@ Ela é executada automaticamente em eventos de push na branch main.
 ### Analise SonarQube
 
 A pipeline inclui um job dedicado para análise de código com o SonarQube, garantindo a qualidade do código e a cobertura
-de testes. O job é configurado para autenticar usando um token seguro armazenado nos GitHub Secrets,
+de testes acima de 85%. O job é configurado para autenticar usando um token seguro armazenado nos GitHub Secrets,
 e utiliza o plugin Maven do SonarQube para enviar os resultados da análise.
 
 ![Sonar](docs/assets/sonar.png)
