@@ -45,6 +45,14 @@ Ela é executada automaticamente em eventos de push na branch main.
 
 ![Pipeline](docs/assets/ci-cd-fluxo-pipeline.jpg)
 
+### Analise SonarQube
+
+A pipeline inclui um job dedicado para análise de código com o SonarQube, garantindo a qualidade do código e a cobertura
+de testes. O job é configurado para autenticar usando um token seguro armazenado nos GitHub Secrets,
+e utiliza o plugin Maven do SonarQube para enviar os resultados da análise.
+
+![Sonar](docs/assets/sonar.png)
+
 ### Variaveis de Ambiente
 
 A pipeline utiliza as seguintes variáveis de ambiente armazenadas como Secrets no GitHub:
@@ -206,7 +214,8 @@ em um repositório separado para facilitar a manutenção e o CI/CD.
 | ☸️ **Kubernetes Infrastructure**  | Infraestrutura da aplicação no Kubernetes, incluindo manifests, deployments, ingress e autoscaling.     | [gerenciador-oficina-k8s-infra-fase-4](https://github.com/thomaserick/gerenciador-oficina-k8s-infra-fase-4)     |
 | 🗄️ **Database Infrastructure**   | Infraestrutura do banco de dados gerenciado (RDS PostgreSQL), versionada e automatizada via Terraform.  | [gerenciador-oficina-db-infra-fase-4](https://github.com/thomaserick/gerenciador-oficina-db-infra-fase-4)       |
 | 🌐 **API Gateway Infrastructure** | Infraestrutura do API Gateway com rate limiting, redirecionamento e monitoramento via Terraform.        | [gerenciador-oficina-api-gateway-infra-fase-4](https://github.com/CaioMC/gerenciador-oficina-gateway-fase-3)    |
-| ✉️ **Notificação**                | Módulo responsável pelo envio e gerenciamento de notificações                                           | [gerenciador-oficina-notificacao-fase-4](https://github.com/thomaserick/gerenciador-oficina-notificacao-fase-4) |                                                                    
+| ✉️ **Notificação**                | Microserviço responsável pelo envio e gerenciamento de notificações                                     | [gerenciador-oficina-notificacao-fase-4](https://github.com/thomaserick/gerenciador-oficina-notificacao-fase-4) |
+| 💲 **Pagamento**                  | Microserviço responsável pelo envio e gerenciamento de Pagamentos                                       | [gerenciador-oficina-pagamento-fase-4](https://github.com/thomaserick/gerenciador-oficina-pagamento-fase-4)     |                                                                    
 
 > 🔍 Cada repositório é autônomo, mas integra-se ao **Core** por meio de pipelines e configurações declarativas (
 > Terraform e CI/CD).
