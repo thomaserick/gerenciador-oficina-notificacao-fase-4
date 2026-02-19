@@ -5,7 +5,7 @@ set -e
 # Deploy da aplicação Spring Boot no Kubernetes EKS
 # =============================
 
-NAMESPACE="gerenciador-oficina-notificacao"
+NAMESPACE="gerenciador-oficina-core"
 K8S_PATH="./devops/k8s/prod"
 
 echo "Iniciando deploy Kubernetes no namespace: $NAMESPACE"
